@@ -1,8 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import logo02_2 from '@/assets/images/logo02_2.png'
 
+interface LoadingScreenProps {
+  loading: number
+  setLoading: Dispatch<SetStateAction<number>>
+}
+
 // Loadin screen when landing
-export default function LoadingScreen({ loading, setLoading }) {
+export default function LoadingScreen({ loading, setLoading }: LoadingScreenProps) {
   const [opacity, setOpacity] = useState(1);
   const [isFading, setIsFading] = useState(false);
 
