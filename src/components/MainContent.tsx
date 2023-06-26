@@ -7,7 +7,7 @@ import MainCover from '@/components/MainCover';
 
 import { IconTwitter, IconFacebook, IconLine } from '@/components/icons/icons'
 
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import TwitterTimelineEmbed from '@/components/TwitterEmbbedTimeline';
 
 import ReactPlayer from 'react-player/youtube'
 
