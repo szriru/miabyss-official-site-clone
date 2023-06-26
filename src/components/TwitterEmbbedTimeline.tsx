@@ -13,18 +13,18 @@ interface Props {
 }
 export default function TwitterTimelineEmbed(props: Props) {
 
-  var ref = React.useRef(null);
+  const ref = React.useRef(null);
 
-  var _React$useState = React.useState(true),
+  const _React$useState = React.useState(true),
     loading = _React$useState[0],
     setLoading = _React$useState[1];
 
 
   function buildOptions() {
-    var options = Object.assign({}, props.options);
+    let options = Object.assign({}, props.options);
 
     if (props !== null && props !== void 0 && props.autoHeight) {
-      var _ref$current, _ref$current$parentNo;
+      let _ref$current, _ref$current$parentNo;
       // @ts-ignore
       options.height = (_ref$current = ref.current) === null || _ref$current === void 0 ? void 0 : (_ref$current$parentNo = _ref$current.parentNode) === null || _ref$current$parentNo === void 0 ? void 0 : _ref$current$parentNo.offsetHeight;
     }
@@ -38,7 +38,7 @@ export default function TwitterTimelineEmbed(props: Props) {
       ariaPolite: props === null || props === void 0 ? void 0 : props.ariaPolite
     });
     return options;
-  };
+  }
 
   function buildChromeOptions(options: any) {
     options.chrome = '';
@@ -64,11 +64,11 @@ export default function TwitterTimelineEmbed(props: Props) {
     }
 
     return options;
-  };
+  }
 
 
   React.useEffect(function () {
-    var isComponentMounted = true;
+    let isComponentMounted = true;
 
     script(twitterWidgetJs, 'twitter-embed', function () {
       if (!window.twttr) {
@@ -82,7 +82,7 @@ export default function TwitterTimelineEmbed(props: Props) {
           return;
         }
 
-        var options = buildOptions();
+        let options = buildOptions();
         options = buildChromeOptions(options);
         window.twttr.widgets[methodName]({
           sourceType: props.sourceType,
@@ -104,8 +104,8 @@ export default function TwitterTimelineEmbed(props: Props) {
     return function () {
       isComponentMounted = false;
     };
-  }, []);
+  }, [])
   return React.createElement(React.Fragment, null, loading && React.createElement(React.Fragment, null, props.placeholder), React.createElement("div", {
     ref: ref
   }));
-};
+}
