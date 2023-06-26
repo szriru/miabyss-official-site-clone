@@ -21,8 +21,9 @@ import banner_movie from '@/assets/images/banner_movie.jpg'
 // Main content
 export default function MainContent() {
   const { cover } = useContext(CoverContext)
-  const comicCovers_tmp = import.meta.glob('@/assets/images/comicCover/*.jpg')
-  const comicCovers = Object.entries(comicCovers_tmp)
+  // importing all images in a folder as vitejs
+  // https://github.com/vitejs/vite/discussions/12191
+  const comicCovers = Object.values(import.meta.glob('@/assets/images/comicCover/*.jpg', { eager: true, as: 'url' }))
 
   return (
     <>
@@ -83,7 +84,7 @@ export default function MainContent() {
           <h1>COMICS</h1>
           <div className='p-4 w-11/12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8'>
             {comicCovers.map((item, idx) => (
-              <img key={idx} className="w-full rounded-md" src={item[0]} alt="" />
+              <img key={idx} className="w-full rounded-md" src={item} alt="" />
             ))}
           </div>
         </div>
