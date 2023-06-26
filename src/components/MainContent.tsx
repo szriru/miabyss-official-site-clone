@@ -60,8 +60,11 @@ export default function MainContent() {
         <div className='sm:space-x-4 sm:space-y-0 flex flex-col sm:flex-row w-full space-y-4 justify-center items-center'>
           <div className=' h-96 sm:w-5/12 p-4 bg-white/80 w-11/12 flex flex-col border border-purple-500 rounded-md'>
             <h1 className='flex justify-start'>NEWS</h1>
-            <div>
-              <p>News1</p>
+            <div className="flex flex-col space-y-4">
+              <div>
+                <p className="font-bold">このサイトはreactjsとtailwindcssによって書かれたメイドインアビス公式サイトのクローンです。</p>
+                <a className="text-blue-500" href="https://github.com/szriru/miabyss-official-site-clone" target="_blank">https://github.com/szriru/miabyss-official-site-clone</a>
+              </div>
               <p>News2</p>
               <p>News3</p>
             </div>
